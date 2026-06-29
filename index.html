@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <body>
+    <div class="botao">
+    <button>
+        <a href="index.html"> voltar</a>
+    </button>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos.css"/>
+    <title>Stardew Valley - Guia do Fazendeiro</title>
+    <!-- Google Fonts para estilo pixel art e visual aconchegante -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Variáveis de Cores Temáticas de Stardew Valley */
+        :root {
+            --wood-dark: #5c3a21;
+            --wood-medium: #8d5b32;
+            --wood-light: #c89d6c;
+            --parchment: #fcf4dc;
+            --parchment-dark: #ebdcb9;
+            --grass-green: #4a752c;
+            --forest-green: #2d4c1e;
+            --gold: #e5b026;
+            --sky-blue: #70b0ff;
+            --text-dark: #3a2212;
+            --text-light: #fdf6e2;
+            
+            /* Cores das Estações */
+            --spring-color: #7bd555;
+            --summer-color: #ffcc33;
+            --fall-color: #e67e22;
+            --winter-color: #74b9ff;
+        }
+
+        /* Configurações Globais */
+        
+
+        body {
+            font-family: 'Comfortaa', cursive, sans-serif;
+            background-repeat: repeat-y;
+            background-image: url(https://images.squarespace-cdn.com/content/v1/64bf8ed4bcdd7401d84ca74a/25c78ef2-0f0e-4e15-805d-0eb2f07a24fe/Red_Rocks.jpg);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Container Principal */
+        .container {
+            padding-top: 500px;
+            padding-left: 100px;
+            padding-right: 100px;
+            display: flex;
+            flex-direction: column;
+            margin: 0 auto;
+        }
+
+        /* Cabeçalho */
+        header {
+            text-align: center;
+            background: linear-gradient(180deg, var(--sky-blue) 0%, #aed2ff 100%);
+            border: 8px solid var(--wood-dark);
+            border-radius: 12px;
+            padding: 40px 20px;
+            margin-bottom: 30px;
+            position: relative;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        /* Decoração de Nuvens e Sol no Header (CSS Puro) */
+        header::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            width: 80px;
+            height: 80px;
+            background: var(--gold);
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(229, 176, 38, 0.6);
+            z-index: 1;
+        }
+
+        .header-title {
+            font-family: 'Press Start 2P', monospace;
+            font-size: 2rem;
+            color: #fff;
+            text-shadow: 4px 4px 0px var(--wood-dark), 
+                         -4px -4px 0px var(--wood-dark), 
+                         4px -4px 0px var(--wood-dark), 
+                         -4px 4px 0px var(--wood-dark),
+                         0px 6px 12px rgba(0,0,0,0.4);
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 2;
+            letter-spacing: 2px;
+        }
+
+        .header-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            font-weight: bold;
+            background: rgba(252, 244, 220, 0.85);
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 20px;
+            border: 2px solid var(--wood-medium);
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Menu de Navegação */
+        nav {
+            background-color: var(--wood-medium);
+            border: 4px solid var(--wood-dark);
+            border-radius: 8px;
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 15px 25px;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            display: inline-block;
+        }
+
+        nav a:hover {
+            background-color: var(--wood-dark);
+            color: var(--gold);
+            transform: scale(1.05);
+        }
+
+        /* Placa de Introdução */
+        .intro-board {
+            background-color: var(--parchment);
+            border: 12px solid;
+            border-image: repeating-linear-gradient(45deg, var(--wood-dark), var(--wood-dark) 20px, var(--wood-medium) 20px, var(--wood-medium) 40px) 15;
+            border-radius: 4px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+            position: relative;
+        }
+
+        .intro-board::after {
+            content: '✿';
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.5rem;
+            color: var(--wood-medium);
+        }
+
+        .intro-board h2 {
+            font-family: 'Press Start 2P', monospace;
+            font-size: 1.2rem;
+            color: var(--wood-dark);
+            margin-bottom: 15px;
+            border-bottom: 3px double var(--wood-medium);
+            padding-bottom: 10px;
+        }
+
+        /* Layout Grid de Seções */
+        .grid-sections {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        /* Estilo dos Cards das Estações */
+        .season-card {
+            background-color: var(--parchment);
+            border: 6px solid var(--wood-dark);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+            transition: transform 0.3s ease;
+        }
+
+        .season-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .season-header {
+            padding: 15px;
+            font-family: 'Press Start 2P', monospace;
+            font-size: 0.9rem;
+            color: #fff;
+            text-shadow: 2px 2px 0px rgba(0,0,0,0.5);
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .spring { background-color: var(--spring-color); border-bottom: 4px solid #5fa83c; }
+        .summer { background-color: var(--summer-color); border-bottom: 4px solid #cc9900; color: var(--text-dark); text-shadow: none; }
+        .fall { background-color: var(--fall-color); border-bottom: 4px solid #b35d15; }
+        .winter { background-color: var(--winter-color); border-bottom: 4px solid #5188c4; }
+
+        .season-body {
+            padding: 20px;
+            background-color: var(--parchment);
+        }
+
+        .season-body h4 {
+            color: var(--wood-dark);
+            font-size: 1.1rem;
+            margin: 15px 0 8px 0;
+            border-bottom: 1px dashed var(--wood-light);
+        }
+
+        .season-body p {
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        /* Lista de Cultivos Eficientes */
+        .crop-list {
+            list-style: none;
+        }
+
+        .crop-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            padding: 6px;
+            background: var(--parchment-dark);
+            border-radius: 6px;
+            font-size: 0.85rem;
+        }
+
+        .crop-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Seção dos Aldeões (Villagers) */
+        .villagers-section {
+            background-color: var(--parchment);
+            border: 8px solid var(--wood-medium);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+        }
+
+        .villagers-section h2 {
+            font-family: 'Press Start 2P', monospace;
+            font-size: 1.3rem;
+            color: var(--wood-dark);
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 4px double var(--wood-medium);
+            padding-bottom: 15px;
+        }
+
+        .villagers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .villager-card {
+            background-color: var(--parchment-dark);
+            border: 4px solid var(--wood-dark);
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+
+        .villager-card:hover {
+            background-color: #f3e5ab;
+            transform: scale(1.03);
+        }
+
+        .villager-avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            border: 4px solid var(--wood-medium);
+            background-color: #fff;
+            margin: 0 auto 15px auto;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .villager-name {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: var(--wood-dark);
+            margin-bottom: 5px;
+        }
+
+        .villager-type {
+            font-size: 0.8rem;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .villager-gifts {
+            font-size: 0.8rem;
+            background: var(--parchment);
+            padding: 8px;
+            border-radius: 6px;
+            border: 1px solid var(--wood-light);
+        }
+
+        /* Seção Guias de Habilidades */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .skill-box {
+            background-color: var(--parchment);
+            border: 5px solid var(--wood-dark);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            position: relative;
+        }
+
+        .skill-box h3 {
+            font-family: 'Press Start 2P', monospace;
+            font-size: 0.9rem;
+            color: var(--wood-dark);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-badge {
+            width: 32px;
+            height: 32px;
+            border-radius: 4px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Rodapé */
+        footer {
+            text-align: center;
+            background-color: var(--wood-dark);
+            color: var(--text-light);
+            border: 6px solid var(--wood-medium);
+            border-radius: 8px;
+            padding: 30px;
+            margin-top: 40px;
+            box-shadow: 0 -4px 10px rgba(0,0,0,0.3);
+        }
+
+        footer p {
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+
+        .footer-logo {
+            font-family: 'Press Start 2P', monospace;
+            font-size: 0.8rem;
+            color: var(--gold);
+            margin-top: 15px;
+        }
+
+        /* Utilitários Extras / Elementos SVG Estilizados */
+        .pixel-divider {
+            height: 8px;
+            background: repeating-linear-gradient(90deg, var(--gold), var(--gold) 15px, transparent 15px, transparent 30px);
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+
+        /* Responsividade Extrema */
+        @media (max-width: 768px) {
+            .header-title {
+                font-size: 1.4rem;
+            }
+            nav a {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+            .intro-board {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- Cabeçalho Principal -->
+        <header id="inicio">
+            <h1 class="header-title">STARDEW VALLEY</h1>
+            <p class="header-subtitle">O Guia Definitivo do Fazendeiro Iniciante ao Veterano</p>
+        </header>
+
+        <!-- Navegação Interna -->
+        <nav>
+            <a href="#estacoes">Estações</a>
+            <a href="#cultivos">Melhores Cultivos</a>
+            <a href="#aldeoes">Aldeões</a>
+            <a href="#habilidades">Habilidades</a>
+            <a href="#dicas">Dicas de Ouro</a>
+        </nav>
+
+        <!-- Introdução -->
+        <section class="intro-board">
+            <h2>Boas-vindas à sua nova vida no Vale!</h2>
+            <p>Você herdou o antigo lote de fazenda do seu avô em Stardew Valley. Armado com ferramentas de segunda mão e algumas moedas, você parte para começar sua nova vida. Este guia foi projetado para ajudar você a limpar seu terreno, cultivar as melhores plantas em cada estação, fazer amizade com os cidadãos locais e prosperar no seu novo lar.</p>
+        </section>
+
+        <!-- Seção de Estações -->
+        <section class="villagers-section" id="estacoes">
+            <h2>As Quatro Estações</h2>
+            <p style="text-align: center; margin-bottom: 25px; font-weight: bold;">Cada estação no vale dura exatamente 28 dias e traz cultivos, festivais e peixes exclusivos!</p>
+            
+            <div class="grid-sections">
+                <!-- Primavera -->
+                <div class="season-card">
+                    <div class="season-header spring">
+                        <span>🌱</span> Primavera
+                    </div>
+                    <div class="season-body">
+                        <p>O recomeço do ano agrícola! Perfeito para limpar a fazenda após o inverno e preparar a terra.</p>
+                        <h4>Cultivos Recomendados</h4>
+                        <ul class="crop-list">
+                            <li class="crop-item">
+                                <span class="crop-icon">🍓</span>
+                                <strong>Morango:</strong> Altíssimo lucro (comprar no festival do dia 13).
+                            </li>
+                            <li class="crop-item">
+                                <span class="crop-icon">🥔</span>
+                                <strong>Batata:</strong> Rápido crescimento e chance de colheita dupla.
+                            </li>
+                            <li class="crop-item">
+                                <span class="crop-icon">🧅</span>
+                                <strong>Chirívia:</strong> Barato e ótimo para o início do jogo.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Verão -->
+                <div class="season-card">
+                    <div class="season-header summer">
+                        <span>☀️</span> Verão
+                    </div>
+                    <div class="season-body">
+                        <p>Estação quente com tempestades frequentes (excelentes para carregar baterias com pára-raios).</p>
+                        <h4>Cultivos Recomendados</h4>
+                        <ul class="crop-list">
+                            <li class="crop-item">
+                                <span class="crop-icon">🍈</span>
+                                <strong>Melão:</strong> Chance de se tornar um cultivo gigante altamente lucrativo.
+                            </li>
+                            <li class="crop-item">
+                                <span class="crop-icon">🫐</span>
+                                <strong>Mirtilo:</strong> Produz várias frutas por pé e colheitas múltiplas.
+                            </li>
+                            <li class="crop-item">
+                                <span class="crop-icon">⭐</span>
+                                <strong>Carambola:</strong> O cultivo regular mais lucrativo de todo o jogo.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Outono -->
+                <div class="season-card">
+                    <div class="season-header fall">
+                        <span>🍁</span> Outono
+                    </div>
+                    <div class="season-body">
+                        <p>A estação das colheitas mais bonitas e místicas do vale, além de grandes festivais de comida.</p>
+                        <h4>Cultivos Recomendados</h4>
+                        <ul class="crop-list">
+                            <li class="crop-item">
+                                <span class="crop-icon">🎃</span>
+                                <strong>Abóbora:</strong> Usada em receitas incríveis e ótima para lucro básico.
+                            </li>
+                            <li class="crop-item">
+                                <span class="crop-icon">🍒</span>
+                                <strong>Oxicoco:</strong> Rende muitas frutas ao longo do mês.
+                            </li>
+                            <li class="crop-item">
+                                <span class="crop-icon">🍇</span>
+                                <strong>Uva:</strong> Cultivado em treliças, rende colheitas constantes.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Inverno -->
+                <div class="season-card">
+                    <div class="season-header winter">
+                        <span>❄️</span> Inverno
+                    </div>
+                    <div class="season-body">
+                        <p>A terra descansa. Use esta época para minerar, pescar, melhorar suas ferramentas e decorar sua fazenda.</p>
+                        <h4>O que fazer?</h4>
+                        <ul class="crop-list">
+                            <li class="crop-item">
+                                <span class="crop-icon">⛏️
+...
