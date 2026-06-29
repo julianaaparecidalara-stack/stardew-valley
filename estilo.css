@@ -1,0 +1,17 @@
+body{
+    background-image: url(https://i.ytimg.com/vi/pDuuMop23qQ/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAoMHSi6tjBhngKIH03lr3hotQKhw);
+
+}
+
+h1 {
+  text-decoration: underline;
+  color: aliceblue;
+   text-shadow: 2px 2px rgb(108, 115, 47);
+
+}
+button{
+    display: flex;
+    align-items: center;
+    padding: 40px;
+    background-color: rgb(190, 188, 64);
+}
